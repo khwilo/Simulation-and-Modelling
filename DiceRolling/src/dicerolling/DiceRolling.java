@@ -9,7 +9,6 @@ package dicerolling;
  *
  * @author Khwilo
  */
-import java.security.SecureRandom;
 
 public class DiceRolling {
 
@@ -17,42 +16,50 @@ public class DiceRolling {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        SecureRandom randomNum = new SecureRandom();
-        /*
-         * Array of frequency counters.
-         * Occurences of each side of the die.
-         * Note: frequency[0] is ignored.
-        */
-        int[] frequency = new int[7];
-       
+        
+        int f_one = 0;
+        int f_two = 0;
+        int f_three = 0;
+        int f_four = 0;
+        int f_five = 0;
+        int f_six = 0;
+        
         // Roll the die 1000 times
         int rolls;
         for (rolls = 1; rolls <= 1000; rolls++) {
-            /*
-             * Determine which frequency element to increment at each iteration of the loop
-            */
-            ++frequency[ 1 + randomNum.nextInt(6)];
+            double randomNum = Math.random();
             
+            if(randomNum <= 1.0 / 6.0){
+                f_one++;
+            }else if(randomNum <= 2.0 / 6.0){
+                f_two++;
+            }else if(randomNum <= 3.0 / 6.0){
+                f_three++;
+            }else if(randomNum <= 4.0 / 6.0){
+                f_four++;
+            }else if(randomNum <= 5.0 / 6.0){
+                f_five++;
+            }else if(randomNum <= 6.0 / 6.0){
+                f_six++;
+            }
         }
         
         System.out.printf("%5s%12s%12s\n", "Face", "Frequency", "Percentage");
         System.out.println("-----------------------------");
-        double totalPercentage = 0;
-        for (int face = 1; face < frequency.length ; face++) {
-            double percentage = (double) (frequency[face]) / 10;
-            String perc = String.format("%.1f", percentage);
-            totalPercentage += percentage;
-            System.out.printf("%4d%10d%11s\n", face, frequency[face], perc);
-        }
         
-        int frequencies = 0;
-        for (int num : frequency) {
-            frequencies += num;
-        }
+        System.out.printf("1:%12d%12d%%\n", f_one, f_one / 10);
+        System.out.printf("2:%12d%12d%%\n", f_two, f_two / 10);
+        System.out.printf("3:%12d%12d%%\n", f_three, f_three / 10);
+        System.out.printf("4:%12d%12d%%\n", f_four, f_four / 10);
+        System.out.printf("5:%12d%12d%%\n", f_five, f_five / 10);
+        System.out.printf("6:%12d%12d%%\n", f_six, f_six / 10);
         
-        String percentage = String.format("%.0f", totalPercentage);
+        int totalFrequency = f_one + f_two + f_three + f_four + f_five + f_six;
+        int totalPercentage = totalFrequency / 10;
+        
         System.out.println("-----------------------------");
-        System.out.printf("%5s%9d%9s \n:", "TOTAL ", frequencies, percentage);
+        System.out.printf("Total:%9d%12d%%\n", totalFrequency, totalPercentage);
+        
     }
     
 }
