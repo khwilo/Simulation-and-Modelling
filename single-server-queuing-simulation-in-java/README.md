@@ -41,10 +41,12 @@ After obtaining *U*, we shall take the natural logarithm of it, multiply the res
 The simulation program includes a main program, routines for initialization, timing, report generation, and generating exponential random variates. (Refer to the flow chart for the next-event time-advance approach)  
 
 The event routines are as follows:  
+
 | Event description | Event Type |
-| ---- | ---- |
+| :--- | --- |
 | Arrival of a customer to the system | 1 |
-| Departure of a customer from the system | 2 | 
+| Departure of a customer from the system | 2 |
+
 
 [Flowchart for arrival routine](arrival_routine.jpg)  
 [Flowchart for departure routine](departure_routine.jpg)
