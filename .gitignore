@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #untracked folders
 nbproject
 build
@@ -5,3 +6,6 @@ build
 #untracked files
 build.xml
 manifest.mf
+=======
+/single-server-queuing-simulation-in-java/mm1_queue/build/
+>>>>>>> test
