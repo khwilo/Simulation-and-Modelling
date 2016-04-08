@@ -21,9 +21,19 @@ public class Mm1_Modules {
     private final int BUSY = 1; /* When server is being busy */
     private final int IDLE = 0; /* When server is idle */
     
-    private int next_event_type, num_custs_delayed, num_delays_required, num_events, num_in_q, server_status;
-    private double area_num_in_q, area_server_status, mean_interarrival, mean_service, sim_time, time_last_event,total_of_delays;
-        
+    private int next_event_type = 1;
+    private int num_custs_delayed = 0;
+    private int num_delays_required, num_events;
+    private int num_in_q = 0;
+    private int server_status = 0;
+    
+    private double area_num_in_q = 0;
+    private double area_server_status = 0;
+    private double mean_interarrival = 1;
+    private double mean_service = 0.5;
+    private double sim_time = 0;
+    private double time_last_event,total_of_delays;
+    
     private final double[] time_arrival = new double[Q_LIMIT + 1];
     private final double[] time_next_event = new double[3];
     
@@ -31,7 +41,6 @@ public class Mm1_Modules {
     private final String INFILE = "../mm1.in";
     private final String OUTFILE = "../mm2.out";
     
-    private final double randomNum = Math.random();
     
     private StringBuilder buffer = new StringBuilder();
     
@@ -241,7 +250,7 @@ public class Mm1_Modules {
     
     private double expon(double mean)
     {
-        return -mean *Math.log(randomNum);
+        return -mean *Math.log(Math.random());
     }
     
     
