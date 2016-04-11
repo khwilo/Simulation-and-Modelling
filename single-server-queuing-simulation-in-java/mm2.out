@@ -7,11 +7,11 @@ Mean service time           0.500 minutes
 Number of customers          1000
 
 
-Average delay in queue      0.000 minutes
+Average delay in queue      0.541 minutes
 
 
-Averge number in queue     0.000
+Averge number in queue     0.536
 
-Server utilization          0.500
+Server utilization          0.492
 
-../mm2.out Time simulation ended    1369.747 minutes
+../mm2.out Time simulation ended    1010.194 minutes
